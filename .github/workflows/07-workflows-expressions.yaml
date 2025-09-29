@@ -1,0 +1,25 @@
+name : 07-workflows-expressions
+on:
+    push :
+    workflow_dispatch :
+      inputs :
+        debug :
+          type : boolean
+          default : false
+jobs:
+  echo:
+    runs-on : ubuntu-Latest
+    steps :
+        - name : '[debug] Print start up date'
+          if : ${{inputs.debug}}
+          run : |
+            echo Triggered By : $${{ github.event_name }}
+            echo Branch : $${{ github.ref }}
+            echo Commit SHA : $${{ github.sha }}
+            echo Runner OS : $${{ runner.os }}
+            echo Workflow : $${{ github.workflow }}
+        - name : ;[debug] Print when triggered'
+          if : ${{inputs.debug && github.ref == 'refs/heads/main'}}
+          run : echo "I was triggered from main"
+        - name : greeting
+          run : echo "Hello , welcome to github actions"
