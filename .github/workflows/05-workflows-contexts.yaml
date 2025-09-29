@@ -15,3 +15,6 @@ jobs:
                 echo "Ref that triggered the workflow : ${{ github.ref }}"
                 echo "Job ID : ${{ github.job }}"
                 echo "Run ID of the workflow : ${{ github.run_id }}"
+                echo "Run number of the workflow : ${{ github.run_number }}"
+                echo "Server URL : ${{ github.server_url }}"
+                echo "API URL : ${{ github.api_url }}"
