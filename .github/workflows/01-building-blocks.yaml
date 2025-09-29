@@ -1,0 +1,24 @@
+name: Building Blocks Demo
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Say hello
+      run: echo "Hello, GitHub Actions!"
+
+    - name: Show environment
+      run: |
+        echo "Runner OS: ${{ runner.os }}"
+        echo "GitHub ref: ${{ github.ref }}"
+        echo "GitHub event: ${{ github.event_name }}"
