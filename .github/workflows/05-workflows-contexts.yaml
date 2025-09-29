@@ -1,0 +1,17 @@
+name : 05-workflows-contexts
+on : push
+
+jobs:
+    echo-data : 
+        runs-on : ubuntu-latest
+        steps :
+            - name : display information
+              run : |
+                echo "Repository name : ${{ github.repository }}"
+                echo "Workflow name : ${{ github.workflow }}"
+                echo "Event that triggered the workflow : ${{ github.event_name }}"
+                echo "SHA of the commit that triggered the workflow : ${{ github.sha }}"
+                echo "Actor who triggered the workflow : ${{ github.actor }}"
+                echo "Ref that triggered the workflow : ${{ github.ref }}"
+                echo "Job ID : ${{ github.job }}"
+                echo "Run ID of the workflow : ${{ github.run_id }}"
