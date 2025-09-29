@@ -1,0 +1,22 @@
+name : 08-workflows-variables
+on : 
+    push:
+    workflow_dispatch:
+
+env : 
+    WORKFLOW_VAR : 'I am workflow env var'
+jobs:
+  echo:
+    runs-on : ubuntu-latest
+    env :
+        JOB_VAR : 'I am job env var'
+    steps:
+      - name : print env variables
+        env :
+         STEP_VAR : 'I am step env var'
+         step_var2: 'I am step env var 2'
+        run : |
+          echo "Step evn var : $STEP_VAR"
+          echo "Step evn var2 : $step_var2"
+          echo "Job env var : $ JOB_VAR"
+          echo "Workflow env var : $WORKFLOW_VAR"
