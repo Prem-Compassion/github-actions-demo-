@@ -1,0 +1,13 @@
+name : 04-workflow-filter
+on :
+    pull_request:
+        types:
+            - closed
+        branches:
+            - main
+
+jobs :
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - run: echo "Running whenever a pull request is closed"
